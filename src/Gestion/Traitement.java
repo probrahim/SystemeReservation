@@ -67,18 +67,26 @@ public class Traitement  implements Gestionutlisateurs{
 
 
 
-    public void reserverPlaces(Utilisateurs utilisateurs,Eventmanage event,int place){
-        if(event.getDisponibilite() >= place){
-            event.setNombrePlace(event.getNombrePlace() - place);
-            event.placesreservation(place);
-            Reservation reservation1 = new Reservation(utilisateurs,event,place);
-            utilisateurs.ajouterReservation(reservation1);
-            reservations.add(reservation1);
-            System.out.println("RESERVATION ADDED");
+    public void reserverPlaces(Utilisateurs utilisateurs,Eventmanage event,int place,double mnt,Paiements paiement){
+        if (event.getDisponibilite() >= place) {
+            if (paiement == null) {
+                System.out.println("PAIEMENT INVALID");
+                return;
+            }
 
-        }
-        else {
-            System.out.println("RESERVER PLACE FAILURE : PAS ASSER DE PLACE");
+            // Utilisation du paiement passé en paramètre
+            if (paiement.efucterpaimnet(paiement)) {
+                event.setNombrePlace(event.getNombrePlace() - place);
+                event.placesreservation(place);
+                Reservation reservation1 = new Reservation(utilisateurs, event, place);
+                utilisateurs.ajouterReservation(reservation1);
+                reservations.add(reservation1);
+                System.out.println("RESERVATION AJOUTÉE AVEC SUCCÈS");
+            } else {
+                System.out.println("RÉSERVATION NON AJOUTÉE : PAIEMENT ÉCHOUÉ");
+            }
+        } else {
+            System.out.println("ÉCHEC DE RÉSERVATION : PAS ASSEZ DE PLACE");
         }
     }
 

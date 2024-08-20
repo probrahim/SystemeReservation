@@ -68,7 +68,7 @@ public class Main {
 
         // Reserve places for user1 in event1
         System.out.println("\nRéservation des places:");
-        traitement.reserverPlaces(user1, event1, 10);  // Reserve 10 places for user1
+        //traitement.reserverPlaces(user1, event1, 10,20);  // Reserve 10 places for user1
 
         // Show reservation details
         System.out.println("\nDétails des réservations:");

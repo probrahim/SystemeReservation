@@ -37,8 +37,17 @@ public class Test {
 
         // etape de reservation
 
-        calcul.reserverPlaces(user1,event1,150);
-        calcul.reserverPlaces(user2,event2,30);
+        // creation de m de pay
+
+        Paiements pay1 = new Paiements(142,"2025/03/17",75634,"ibrahim");
+        Paiements pay2 = new Paiements(112,"2025/07/1",65453,"abdou");
+        pay1.ajoutermoyenpay(pay1);
+        pay2.ajoutermoyenpay(pay2);
+        Paiements payofficel1 =  new Paiements(142,"2025/03/17",75634,"ibrahim");
+
+
+        calcul.reserverPlaces(user1,event1,150,30.00,pay1);
+        calcul.reserverPlaces(user2,event2,30,10.00,pay2);
         System.out.println("--LIST OF EVENTS && PLACE RESERVER---");
 
         calcul.afficheevent();
@@ -47,8 +56,8 @@ public class Test {
         // annuler une reservation
 
         System.out.println("--^^^^^^^^---");
-        Reservation cancal = user1.getReservations().get(0);
-        calcul.cancalreservation(user1,cancal);
+//        Reservation cancal = user1.getReservations().get(0);
+//        calcul.cancalreservation(user1,cancal);
 
         calcul.details();
         System.out.println("--LIST OF RESERVATIONS---");
