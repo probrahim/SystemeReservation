@@ -69,6 +69,7 @@ public class Traitement  implements Gestionutlisateurs{
 
     public void reserverPlaces(Utilisateurs utilisateurs,Eventmanage event,int place){
         if(event.getDisponibilite() >= place){
+            event.setNombrePlace(event.getNombrePlace() - place);
             event.placesreservation(place);
             Reservation reservation1 = new Reservation(utilisateurs,event,place);
             utilisateurs.ajouterReservation(reservation1);

@@ -10,8 +10,12 @@ public interface Gestionutlisateurs {
 
     //Gestion des Événements
 
+
+
+
     void ajouterevenemt(Eventmanage eventmanage);
     void editevent(Eventmanage eventmanage);
     void deleteevent(Eventmanage eventmanage);
     void afficheevent();
+
 }
